@@ -1,0 +1,19 @@
+{
+  "name": "alexa-top-sites",
+  "description": "Scrape Alexa 'Top' pages for some popular sites for URL testing.",
+  "version": "1.0.0",
+  "author": "Peter deHaan <peter@deseloper.com> (https://about.me/peterdehaan)",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "node-fetch": "^1.6.0"
+  },
+  "devDependencies": {
+    "check-url": "^1.0.0"
+  },
+  "keywords": ["fetch", "alexa", "top sites"],
+  "license": "WTFPL",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test-category"
+  }
+}
