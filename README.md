@@ -13,7 +13,7 @@ I wouldn't recommend using this garbage API for anything serious (like productio
 ## Installation:
 
 ```sh
-$ npm i pdehaan/alexa-top-sites -S
+$ npm i alexa-top-sites -S
 ```
 
 ## Usage:
