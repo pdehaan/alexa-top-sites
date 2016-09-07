@@ -3,6 +3,9 @@
   "description": "Scrape Alexa 'Top' pages for some popular sites for URL testing.",
   "version": "1.0.0",
   "author": "Peter deHaan <peter@deseloper.com> (https://about.me/peterdehaan)",
+  "bugs": {
+    "url": "https://github.com/pdehaan/alexa-top-sites/issues"
+  },
   "dependencies": {
     "cheerio": "^0.22.0",
     "node-fetch": "^1.6.0"
@@ -10,9 +13,18 @@
   "devDependencies": {
     "check-url": "^1.0.0"
   },
-  "keywords": ["fetch", "alexa", "top sites"],
+  "homepage": "https://github.com/pdehaan/alexa-top-sites#readme",
+  "keywords": [
+    "fetch",
+    "alexa",
+    "top sites"
+  ],
   "license": "WTFPL",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdehaan/alexa-top-sites.git"
+  },
   "scripts": {
     "test": "node test-category"
   }
