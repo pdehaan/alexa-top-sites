@@ -1,36 +1,21 @@
-const url = require('url');
+const urlResolve = require('url').resolve;
 
-const { checkUrl } = require('check-url');
+// const { checkUrl } = require('check-url');
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 
+const BASE_URL = 'http://www.alexa.com/topsites';
 const ALEXA_BASE_URLS = {
-  category: 'http://www.alexa.com/topsites/category/Top/',
-  country: 'http://www.alexa.com/topsites/countries/',
-  global: 'http://www.alexa.com/topsites'
+  category: `${BASE_URL}/category/Top/`,
+  country: `${BASE_URL}/countries/`,
+  global: BASE_URL
 };
-
-exports.byCategory = byCategory;
-exports.byCountry = byCountry
 
 module.exports = {
-  byCategory,
-  byCountry,
-  global
+  byCategory: (category='News') => _scraper(urlResolve(ALEXA_BASE_URLS.category, category), {category}),
+  byCountry: (country='US') => _scraper(urlResolve(ALEXA_BASE_URLS.country, country), {country}),
+  global: () => _scraper(ALEXA_BASE_URLS.global)
 };
-
-
-function byCategory(category='News') {
-  return _scraper(url.resolve(ALEXA_BASE_URLS.category, category), {category});
-}
-
-function byCountry(country='US') {
-  return _scraper(url.resolve(ALEXA_BASE_URLS.country, country), {country});
-}
-
-function global() {
-  return _scraper(ALEXA_BASE_URLS.global);
-}
 
 function _scraper(url, data={}) {
   return fetch(url, {method: 'GET'})
@@ -40,7 +25,9 @@ function _scraper(url, data={}) {
       const urls = $('li.site-listing p.desc-paragraph a')
         .map((idx, el) => $(el).text())
         .get();
-
+      return urls;
+    })
+    .then((urls) => {
       if (urls.length === 0) {
         // If we're seeing this, the user probably specified an invalid category URL (ie: "sports" instead of "Sports").
         throw new Error(`Unable to locate any top sites for ${categoryUrl}`);
