@@ -4,18 +4,20 @@ const urlResolve = require('url').resolve;
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 
-const BASE_URL = 'http://www.alexa.com/topsites';
-const ALEXA_BASE_URLS = {
-  category: `${BASE_URL}/category/Top/`,
-  country: `${BASE_URL}/countries/`,
-  global: BASE_URL
-};
+const ALEXA_BASE_URL = 'http://www.alexa.com/topsites';
 
 module.exports = {
-  byCategory: (category='News') => _scraper(urlResolve(ALEXA_BASE_URLS.category, category), {category}),
-  byCountry: (country='US') => _scraper(urlResolve(ALEXA_BASE_URLS.country, country), {country}),
-  global: () => _scraper(ALEXA_BASE_URLS.global)
+  byCategory: (category='News', page=0) => _scraper(urlResolve(`${ALEXA_BASE_URL}/category;${page}/Top/`, category), {category}),
+  byCountry: (country='US', page=0) => _scraper(urlResolve(`${ALEXA_BASE_URL}/countries;${page}/`, country), {country}),
+  getPages,
+  global: () => _scraper(ALEXA_BASE_URL)
 };
+
+function getPages(fn, value, numPages=1) {
+  const promises = Array.from(Array(numPages), (_, page) => fn(value, page));
+  return Promise.all(promises)
+    .then((pages) => pages.reduce((prev, curr) => prev.concat(curr.sites), []));
+}
 
 function _scraper(url, data={}) {
   return fetch(url, {method: 'GET'})
