@@ -159,3 +159,40 @@ alexa.global()
 }
 ```
 </details>
+
+### Paged results:
+
+Retrieve the first X pages of results for a category or country:
+
+```js
+const { getPages, byCategory } = require('alexa-top-sites');
+
+// Get the first 10 pages (250 results) of http://www.alexa.com/topsites/category/Top/Computers/Internet
+getPages(byCategory, 'Computers/Internet', 10)
+  .then((res) => console.log(JSON.stringify(res, null, 2)))
+  .catch((err) => console.error(err.message));
+```
+
+<details>
+<summary>Output:</summary>
+```js
+[
+  "http://google.com",
+  "https://www.youtube.com/",
+  "https://www.facebook.com/",
+  "https://mail.google.com/",
+  "http://yahoo.com",
+  "https://twitter.com/",
+  "http://mail.yahoo.com",
+  "https://www.bing.com/",
+  "http://search.yahoo.com",
+  "https://www.linkedin.com/",
+  "http://msn.com",
+  "https://www.pinterest.com/",
+  "http://wordpress.com",
+  "http://tumblr.com",
+  "http://imgur.com",
+  ...
+]
+```
+</details>
