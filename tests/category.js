@@ -1,4 +1,4 @@
-const { byCategory } = require('./index'); // alexa-top-sites
+const { byCategory } = require('../index'); // alexa-top-sites
 
 byCategory('Sports')
   .then((res) => console.log(JSON.stringify(res, null, 2)))

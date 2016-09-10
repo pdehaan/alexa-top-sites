@@ -28,8 +28,9 @@
   },
   "scripts": {
     "test": "npm-run-all test:*",
-    "test:category": "node test-category",
-    "test:country": "node test-country",
-    "test:global": "node test-global"
+    "test:category": "node tests/category",
+    "test:category2": "node tests/category-2",
+    "test:country": "node tests/country",
+    "test:global": "node tests/global"
   }
 }
