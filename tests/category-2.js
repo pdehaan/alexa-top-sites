@@ -1,4 +1,4 @@
-const { byCategory } = require('./index'); // alexa-top-sites
+const { byCategory } = require('../index'); // alexa-top-sites
 
 // Get the third (zero-indexed) page of http://www.alexa.com/topsites/category;2/Top/Sports
 byCategory('Sports', 2)

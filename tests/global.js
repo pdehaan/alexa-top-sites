@@ -1,5 +1,5 @@
-const { byCountry } = require('./index'); // alexa-top-sites
+const alexa = require('../index'); // alexa-top-sites
 
-byCountry('CA') // Canada
+alexa.global()
   .then((res) => console.log(JSON.stringify(res, null, 2)))
   .catch((err) => console.error(err));
