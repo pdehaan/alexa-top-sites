@@ -1,7 +1,7 @@
 {
   "name": "alexa-top-sites",
   "description": "Scrape Alexa 'Top' pages for some popular sites for URL testing.",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "Peter deHaan <peter@deseloper.com> (https://about.me/peterdehaan)",
   "bugs": {
     "url": "https://github.com/pdehaan/alexa-top-sites/issues"
