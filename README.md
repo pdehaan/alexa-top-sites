@@ -32,6 +32,7 @@ byCategory('Sports')
 
 <details>
 <summary>OUTPUT:</summary>
+
 ```json
 {
   "category": "Sports",
@@ -126,6 +127,7 @@ alexa.global()
 
 <details>
 <summary>Output:</summary>
+
 ```json
 {
   "url": "http://www.alexa.com/topsites",
@@ -175,6 +177,7 @@ getPages(byCategory, 'Computers/Internet', 10)
 
 <details>
 <summary>Output:</summary>
+
 ```js
 [
   "http://google.com",
