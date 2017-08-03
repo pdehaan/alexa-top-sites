@@ -24,7 +24,7 @@ function _scraper(url, data={}) {
     .then((res) => res.text())
     .then((text) => cheerio.load(text))
     .then(($) => {
-      const urls = $('li.site-listing p.desc-paragraph a')
+      const urls = $('.DescriptionCell p a')
         .map((idx, el) => $(el).text())
         .get();
       return urls;
