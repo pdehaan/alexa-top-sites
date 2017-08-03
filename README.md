@@ -80,6 +80,7 @@ byCountry('CA') // Canada
 
 <details>
 <summary>Output:</summary>
+
 ```json
 {
   "country": "CA",
